@@ -3,15 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>MathJax example</title>
+  <title>Cyclic sieving phenomenon related to Lucas numbers</title>
   <script id="MathJax-script" async
           src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
 </head>
 <body>
-<p>
-  When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-  \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
-</p>
+
+<h3>Lucas and \(q\)-Lucas</h3>
+The Lucas sequence \( (L_n)_{n \ge 0} \) can be defined in a number of ways, including
+<ol>
+  <li>\( L_n = \mathrm{Tr}(A^n) \) where \( A = \begin{pmatrix}1 &1\\1 & 0\end{pmatrix}\). 
+   <li>For \( n \ge 1\), \( L_n \) is the cardinality of \( W^C_n \), where \( W^C_n \) is the set of all binary words \( w=w_1 w_2 \cdots w_n \) of length \( n\) without consecutive \(1\)-s, <i>not even cyclically</i> (\(w_1=w_n=1\) is not allowed). </li>
+</ol>
+To see that the two definitions are equivalent, interpret \(A\) as an adjacency graph of a direct graph on \(\{0,1\}\) and the trace of \(A^n\) as the number of closed walks of length \(n\) on this graph, which are parameterized by \(W^C_n\).
+<br>
+Let \( q \) be a formal variable. One can define a \(q\)-analogue of the Lucas sequence, \( (L_n(q))_{n\ge 0}\), in a number of ways, including
+<ol>
+<li> \( L_n(q) = \mathrm{Tr}(A(q^{n-1})A(q^{n-2})\cdots A(q) A(1))\) where \( A(x) = \begin{pmatrix}1 & x\\1 & 0\end{pmatrix}\). 
+<li> For \( n\ge 1\), \( L_n(q) = \sum_{w \in W^C_n} q^{f(w)}\) where \( f(w)=\sum_{\substack{1 \le i \le n\\ w_i=1}} (i-1)\) for a binary word \( w=w_1\cdots w_n\).</li>
+</ol>
+Clearly \(L_n(1)=L_n\) and \( L_n(q) \in \mathbb{N}_0[q]\). The equivalency of the definitions is explained by interpreting the trace of \( A(q^{n-1})\cdots A(1)\) as counting <i>weighted</i> closed walks. 
+<br>
+In Theorem 1.1(2) and Corollary 2.3 <a href="https://arxiv.org/abs/1805.01254">here</a> we proved that
+\[ (\star)\, L_{n}(q) \equiv L_{n/d} \bmod \Phi_d(q) \]
+holds for all \(n\ge 1\) and \( d\mid n\), where \( \Phi_d(q)\) is the \(d\)-th cyclotomic polynomial, and \( A \equiv B \bmod C\) means \( (A-B)/C \in \mathbb{Z}[q]\). 
+For \(d=n\), \((\star)\) was proved by <a href="https://doi.org/10.37236/2557">Pan</a>, and this is used in our proof.
+For equivalent formulations of \( (\star) \), as well as an interpretation in terms of the Cyclic Sieving Phenomenon (CSP), see Corollary 2.3 and the discussion preceding Theorem 1.2 in the <a href="https://arxiv.org/abs/1805.01254">aforementioned paper</a>.
+<h3>A refinement</h3>
+For any \(n \ge 1\), define \(L_{n,k}\) (\( 0 \le k \le n\)) as the cardinality of \( W^C_{n,k} \), the subset of words in \( W^C_n \) with exactly \( k\) \(1\)-s and \(n-k\) \(0\)-s. In particular, \( \sum_{k=0}^{n} L_{n,k} = L_n \). 
+It is natural to set \( L_{n,k}(q) = \sum_{w \in W^C_{n,k}}q^{f(w)}\)
+so that \(L_{n,k}(1)=L_{n,k}\) and \( L_n(q) =\sum_k L_{n,k}(q)\). The polynomial \( L_{n,k}(q)\) is also given as the coefficient of \( t^k\) in \(\mathrm{Tr}(A(q^{n-1},t)A(q^{n-2},t)\cdots A(q,t)A(1,t))\) where 
+\(A(x,t) = \begin{pmatrix}1 &x\\t  & 0\end{pmatrix}\). In Theorem 1.2(2) <a href="https://arxiv.org/abs/1805.01254">here</a> we proved that
+\[ (\star \star)\, L_{n,k}(q) = L_{n/d,k/d} \mathbf{1}_{d \mid k} \bmod \Phi_d(q)\]
+holds for all \(n\ge 1\) and \( d\mid n\). This implies \( (\star) \) and has an interpretation in terms of the CSP, see the full statement of Theorem 1.2(2).
+<br><br>
+<b><span style="color:#6495ED">Question:</span></b> What is the right generalization of \( (\star) \) and \( (\star \star) \)?
+<br><br>
+Aside from Pan's result, the main ingredient in the proofs of \( (\star)\) and \( (\star \star)\) is the claim that the matrices \(A(1,t^n)\) and  \(A(\omega^{n-1},t)A(\omega^{n-2},t)\cdots A(\omega,t)A(1,t)\) have the same characteristic polynomial for any \(n\)-th primitive root of unity \(\omega\) (see <a href="https://arxiv.org/abs/1805.01254">Lemma 5.2</a>).
+<br>
+While it is not used in the proof of \( (\star\star) \), we mention that <a href="https://www.fq.math.ca/Scanned/12-4/carlitz1.pdf">Carlitz</a> proved the beautiful identity   
+\( L_{n,k}(q) = q^{k^2-k}{\begin{bmatrix}n-k+1\\k\end{bmatrix}}_{q} - q^{n+1+(k-1)^2-k}  {\begin{bmatrix}n-k-1\\k-2\end{bmatrix}}_{q}\) for \(k \ge 2\). Here \({\begin{bmatrix}n\\k\end{bmatrix}}_{q}\) is the \(q\)-binomial coefficient. 
+This recovers the identity \( L_{n,k} = \binom{n-k+1}{k} -\binom{n-k-1}{k-2}\) for \(k \ge 2\). 
+<h3>Further background</h3>
+The previous expressions have a rich history. One may define \( L_n \) via the Fibonacci sequence \( (F_n)_{\ge 0} \). Recall \( F_0=0\), \( F_1=1\) and \( F_{n}=F_{n-1}+F_{n-2}\) for \(n \ge 2\). Then \[ L_n = F_{n+1} + F_{n-1} \] for \(n\ge 0\), where \( F_{-1}:=F_1 - F_0=1\).
+To see this agrees with the first definition of \( L_n\), one can induct to prove \( A^n = \begin{pmatrix}F_{n+1} &F_n\\F_n & F_{n-1}\end{pmatrix} \).
+To see this agrees with the second definition of \(L_n\), one case use the interpretation of \(F_n\) (\(n\ge 2\)) as the cardinality of \(W_{n-2}\), where \(W_n\) is the set of all binary words of length \(n\) without consecutive \(1\)-s. 
+<br><br>
+Similarly, one can relate \( L_n(q)\) to \(q\)-analogues of \(F_n\). In 1917, <a href="https://zbmath.org/46.0201.01">Schur</a> considered the following two \(q\)-analogues of \(F_n\) in his study of the Rogers-Ramanujan identities, which he discovered 2 years prior to Rogers and Ramanujan: they are denoted \( F_n(q)\) and \(G_n(q)\). They are defined by \(F_i(q)=G_i(q)=i\) for \(i=0,1\) and
+\[ F_n(q) = F_{n-1}(q) +q^{n-2} F_{n-2}(q), \qquad G_n(q) = G_{n-1}(q) +q^{n-1} G_{n-2}(q)\]
+for \(n \ge 2\). Note \( F_n(1)=G_n(1)=F_n \), and one can define \( G_{-1}(q):=G_1(q)-G_0(q)=1 \). 
+The polynomials \( F_n(q)\) and \(G_n(q)\) were studied by Leonard Carlitz, <a href="https://www.fq.math.ca/Papers1/42-1/quartgranville01_2004.pdf">George Andrews</a> and Johann Cigler, to name a few.
+To see how \( L_n(q)\) relates to \( F_n(q)\) and \( G_n(q)\), show that \( A(q^{n-1})\cdots A(1)=\begin{pmatrix}F_{n+1}(q) &G_n(q)\\F_n(q) & G_{n-1}(q) \end{pmatrix}\) holds by induction, so \[ L_n(q) = F_{n+1}(q) + G_{n-1}(q). \] For \(n\ge 2\) one can write \(F_n(q)\) and \(G_n(q)\) as sums over \( W_{n-2}\), namely
+\[ F_n(q) = \sum_{w \in W_{n-2}} q^{f(w)+|\{1\le i \le n-2:\,  w_i=1\}|}, \qquad G_n(q) = \sum_{w \in W_{n-2}} q^{f(w)}.\]
+Further, one defines \( F_{n,k}\) (\(n\ge 2\)) as the cardinality of \( W_{n-2,k} \), the subset of words in \( W_{n-2} \) with exactly \( k\) \(1\)-s and \(n-k-2\) \(0\)-s. In particular, \( \sum_{k=0}^{n-2} F_{n,k} = F_n \). 
+We set \[F_{n,k}(q) = \sum_{w \in W_{n-2,k}}q^{f(w)+|\{1\le i \le n-2:\,  w_i=1\}|} = q^k \sum_{w \in W_{n-2,k}}q^{f(w)} ,\qquad G_{n,k}(q) = \sum_{w \in W_{n-2,k}}q^{f(w)+2|\{1\le i \le n-2:\,  w_i=1\}|}=q^k F_{n,k}(q)\]
+so that  \(F_{n,k}(1)=G_{n,k}(1)=F_{n,k}\) and  \(F_n(q) =\sum_k F_{n,k}(q)\), \( G_n(q) = \sum_k G_{n,k}(q) \).
+Carlitz proved that \(F_{n,k}(q) = q^{k^2} {\begin{bmatrix}n-k-1\\k\end{bmatrix}}_{q}\) and \(G_{n,k}(q) = q^{k^2+k} {\begin{bmatrix}n-k-1\\k\end{bmatrix}}_{q}\) hold for \(n \ge 2\). This recovers the identity \( F_{n,k} = \binom{n-k-1}{k}\).
+<hr>
+<a href="./pub.html">Back to publications</a>
 </body>
 </html>
