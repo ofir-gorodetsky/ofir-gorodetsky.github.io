@@ -30,7 +30,10 @@ In Theorem 1.1(2) and Corollary 2.3 <a href="https://arxiv.org/abs/1805.01254">h
 holds for all \(n\ge 1\) and \( d\mid n\), where \( \Phi_d(q)\) is the \(d\)-th cyclotomic polynomial, and \( A \equiv B \bmod C\) means \( (A-B)/C \in \mathbb{Z}[q]\). 
 For \(d=n\), \((\star)\) was proved by <a href="https://doi.org/10.37236/2557">Pan</a>, and this is used in our proof.
 For equivalent formulations of \( (\star) \), as well as an interpretation in terms of the Cyclic Sieving Phenomenon (CSP), see Corollary 2.3 and the discussion preceding Theorem 1.2 in the <a href="https://arxiv.org/abs/1805.01254">aforementioned paper</a>.
-<h3>A refinement and a question</h3>
+
+<br><br>
+<b><span style="color:#6495ED">Question 1:</span></b> Given \(k \ge 1\) and a \(k \times k\) integer matrix  \(A\), does there necessarily exist a sequence \( \{a_n(q)\}_{n \ge 1} \) with \(a_n(q) \in \mathbb{Z}[q]\) and \( a_n(1)=\mathrm{Tr}(A^n)\) such that \( a_{n}(q) \equiv a_{n/d}(1) \bmod \Phi_d(q) \) holds for all \(n\ge 1\) and \( d\mid n\)?
+<h3>A refinement</h3>
 For any \(n \ge 1\), define \(L_{n,k}\) (\( 0 \le k \le n\)) as the cardinality of \( W^C_{n,k} \), the subset of words in \( W^C_n \) with exactly \( k\) \(1\)-s and \(n-k\) \(0\)-s. In particular, \( \sum_{k=0}^{n} L_{n,k} = L_n \). 
 It is natural to set \( L_{n,k}(q) = \sum_{w \in W^C_{n,k}}q^{f(w)}\)
 so that \(L_{n,k}(1)=L_{n,k}\) and \( L_n(q) =\sum_k L_{n,k}(q)\). The polynomial \( L_{n,k}(q)\) is also given as the coefficient of \( t^k\) in \(\mathrm{Tr}(A(q^{n-1},t)A(q^{n-2},t)\cdots A(q,t)A(1,t))\) where 
@@ -38,7 +41,7 @@ so that \(L_{n,k}(1)=L_{n,k}\) and \( L_n(q) =\sum_k L_{n,k}(q)\). The polynomia
 \[ (\star \star)\, L_{n,k}(q) = L_{n/d,k/d} \mathbf{1}_{d \mid k} \bmod \Phi_d(q)\]
 holds for all \(n\ge 1\) and \( d\mid n\). This implies \( (\star) \) and has an interpretation in terms of the CSP, see the full statement of Theorem 1.2(2).
 <br><br>
-<b><span style="color:#6495ED">Question:</span></b> What is the right generalization of \( (\star) \) and \( (\star \star) \)?
+<b><span style="color:#6495ED">Question 2:</span></b> What is the right generalization of \( (\star) \) and \( (\star \star) \)?
 <br><br>
 Aside from Pan's result, the main ingredient in the proofs of \( (\star)\) and \( (\star \star)\) is the claim that the matrices \(A(1,t^n)\) and  \(A(\omega^{n-1},t)A(\omega^{n-2},t)\cdots A(\omega,t)A(1,t)\) have the same characteristic polynomial for any \(n\)-th primitive root of unity \(\omega\) (see <a href="https://arxiv.org/abs/1805.01254">Lemma 5.2</a>).
 <br>
