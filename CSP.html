@@ -32,9 +32,9 @@ For \(d=n\), \((\star)\) was proved by <a href="https://doi.org/10.37236/2557">P
 For equivalent formulations of \( (\star) \), as well as an interpretation in terms of the Cyclic Sieving Phenomenon (CSP), see Corollary 2.3 and the discussion preceding Theorem 1.2 in the <a href="https://arxiv.org/abs/1805.01254">aforementioned paper</a>.
 
 <br><br>
-<b><span style="color:#6495ED">Question 1:</span></b> Given \(k \ge 1\) and a \(k \times k\) integer matrix  \(A\), does there necessarily exist a sequence \( \{a_n(q)\}_{n \ge 1} \) with \(a_n(q) \in \mathbb{Z}[q]\) and \( a_n(1)=\mathrm{Tr}(A^n)\) such that \( a_{n}(q) \equiv a_{n/d}(1) \bmod \Phi_d(q) \) holds for all \(n\ge 1\) and \( d\mid n\)?
+<b><span style="color:#6495ED">Question 1:</span></b> Given a square integer matrix  \(A\), does there necessarily exist a sequence \( \{a_n(q)\}_{n \ge 1} \) with \(a_n(q) \in \mathbb{Z}[q]\) and \( a_n(1)=\mathrm{Tr}(A^n)\) such that \( a_{n}(q) \equiv a_{n/d}(1) \bmod \Phi_d(q) \) holds for all \(n\ge 1\) and \( d\mid n\)?
 <h3>A refinement</h3>
-For any \(n \ge 1\), define \(L_{n,k}\) (\( 0 \le k \le n\)) as the cardinality of \( W^C_{n,k} \), the subset of words in \( W^C_n \) with exactly \( k\) \(1\)-s and \(n-k\) \(0\)-s. In particular, \( \sum_{k=0}^{n} L_{n,k} = L_n \). 
+For any \(n \ge 1\), define \(L_{n,k}\) (\( 0 \le k \le n\)) as the cardinality of \( W^C_{n,k} \), the subset of words in \( W^C_n \) with exactly \( k\) \(1\)-s. In particular, \( \sum_{k=0}^{n} L_{n,k} = L_n \). 
 It is natural to set \( L_{n,k}(q) = \sum_{w \in W^C_{n,k}}q^{f(w)}\)
 so that \(L_{n,k}(1)=L_{n,k}\) and \( L_n(q) =\sum_k L_{n,k}(q)\). The polynomial \( L_{n,k}(q)\) is also given as the coefficient of \( t^k\) in \(\mathrm{Tr}(A(q^{n-1},t)A(q^{n-2},t)\cdots A(q,t)A(1,t))\) where 
 \(A(x,t) = \begin{pmatrix}1 &x\\t  & 0\end{pmatrix}\). In Theorem 1.2(2) <a href="https://arxiv.org/abs/1805.01254">here</a> we proved that
@@ -49,7 +49,7 @@ While it is not used in the proof of \( (\star\star) \), we mention that <a href
 \( L_{n,k}(q) = q^{k^2-k}{\begin{bmatrix}n-k+1\\k\end{bmatrix}}_{q} - q^{n+1+(k-1)^2-k}  {\begin{bmatrix}n-k-1\\k-2\end{bmatrix}}_{q}\) for \(k \ge 2\). Here \({\begin{bmatrix}n\\k\end{bmatrix}}_{q}\) is the \(q\)-binomial coefficient. 
 This recovers the identity \( L_{n,k} = \binom{n-k+1}{k} -\binom{n-k-1}{k-2}\) for \(k \ge 2\). 
 <h3>Optional further background</h3>
-The previous expressions have a rich history. One may define \( L_n \) via the Fibonacci sequence \( (F_n)_{\ge 0} \). Recall \( F_0=0\), \( F_1=1\) and \( F_{n}=F_{n-1}+F_{n-2}\) for \(n \ge 2\). Then \[ L_n = F_{n+1} + F_{n-1} \] for \(n\ge 0\), where \( F_{-1}:=F_1 - F_0=1\).
+The previous expressions have a rich history. One may define \( L_n \) via the Fibonacci sequence \( (F_n)_{n \ge 0} \). Recall \( F_0=0\), \( F_1=1\) and \( F_{n}=F_{n-1}+F_{n-2}\) for \(n \ge 2\). Then \[ L_n = F_{n+1} + F_{n-1} \] for \(n\ge 0\), where \( F_{-1}:=F_1 - F_0=1\).
 To see this agrees with the first definition of \( L_n\), one can induct to prove \( A^n = \begin{pmatrix}F_{n+1} &F_n\\F_n & F_{n-1}\end{pmatrix} \).
 To see this agrees with the second definition of \(L_n\), one case use the interpretation of \(F_n\) (\(n\ge 2\)) as the cardinality of \(W_{n-2}\), where \(W_n\) is the set of all binary words of length \(n\) without consecutive \(1\)-s. 
 <br><br>
