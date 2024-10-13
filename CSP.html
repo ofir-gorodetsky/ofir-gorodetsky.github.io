@@ -32,7 +32,9 @@ For \(d=n\), \((\star)\) was proved by <a href="https://doi.org/10.37236/2557">P
 For equivalent formulations of \( (\star) \), as well as an interpretation in terms of the Cyclic Sieving Phenomenon (CSP), see Corollary 2.3 and the discussion preceding Theorem 1.2 in the <a href="https://arxiv.org/abs/1805.01254">aforementioned paper</a>.
 
 <br><br>
-<b><span style="color:#6495ED">Question 1:</span></b> Given a square integer matrix  \(A\), does there necessarily exist a sequence \( \{a_n(q)\}_{n \ge 1} \) with \(a_n(q) \in \mathbb{Z}[q]\) and \( a_n(1)=\mathrm{Tr}(A^n)\) such that \( a_{n}(q) \equiv a_{n/d}(1) \bmod \Phi_d(q) \) holds for all \(n\ge 1\) and \( d\mid n\)?
+<b><span style="color:#6495ED">Question 1:</span></b> Given a square integer matrix  \(A\), does there necessarily exist a <i>nice</i> sequence \( ( a_n(q))_{n \ge 1} \) with \(a_n(q) \in \mathbb{Z}[q]\) and \( a_n(1)=\mathrm{Tr}(A^n)\) such that \( a_{n}(q) \equiv a_{n/d}(1) \bmod \Phi_d(q) \) holds for all \(n\ge 1\) and \( d\mid n\)?
+<br><br>
+I use the adjective 'nice' because one can always define \( (a_n(q))_{n \ge 1} \) in a greedy fashion. 
 <h3>A refinement</h3>
 For any \(n \ge 1\), define \(L_{n,k}\) (\( 0 \le k \le n\)) as the cardinality of \( W^C_{n,k} \), the subset of words in \( W^C_n \) with exactly \( k\) \(1\)-s. In particular, \( \sum_{k=0}^{n} L_{n,k} = L_n \). 
 It is natural to set \( L_{n,k}(q) = \sum_{w \in W^C_{n,k}}q^{f(w)}\)
